@@ -35,7 +35,7 @@ export const store = new Vuex.Store({
   actions: {
     // LOAD WE SETTINGS
     [GET_SETTINGS](context, payload) {
-      brainpopApis.settings.we(
+      apis.settings.we(
         function(settings) {
           context.commit(SET_SETTINGS, settings);
           if (payload.onSuccess) {

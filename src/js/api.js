@@ -4,7 +4,7 @@ const axiosWrapper = {
   // GET
   get: function(endPoint, successCallback, errorCallback) {
     axios
-      .get(process.env.API_URL + endPoint, { withCredentials: true })
+      .get(endPoint, { withCredentials: true })
       .then(response => {
         successCallback(response.data);
       })
@@ -15,13 +15,7 @@ const axiosWrapper = {
 };
 
 export default {
-  settings: {
-    // LOAD WE SETTINGS FOR THE CURRENT USER
-    we: function(successCallback, errorCallback) {
-      axiosWrapper.get("/api/we-settings", successCallback, errorCallback);
-    },
-    app: function(successCallback, errorCallback) {
-      axiosWrapper.get("/api/settings", successCallback, errorCallback);
-    }
+  settings: function(successCallback, errorCallback) {
+    axiosWrapper.get("/api/settings", successCallback, errorCallback);
   }
 };
